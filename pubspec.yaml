@@ -1,0 +1,38 @@
+name: apron_illustrations
+description: "Collection of beautiful and well-designed illustrations from Apron."
+version: 0.1.0
+homepage: https://github.com/hanmajid/apron_illustrations
+issue_tracker: https://github.com/hanmajid/apron_illustrations/issues
+repository: https://github.com/hanmajid/apron_illustrations
+funding:
+  - https://github.com/sponsors/hanmajid
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.2.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - assets/01_Food/
+    - assets/02_Ingredient/
+
+topics:
+  - assets
+  - illustrations
+  - ui
+
+screenshots:
+  - description: 'Static Apron illustrations'
+    path: apron-illustrations-static.png
+  - description: 'Dynamic Apron illustrations'
+    path: apron-illustrations-dynamic.png
