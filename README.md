@@ -58,6 +58,7 @@ ApronFemalePerson(
 | Dairy Farmer | `ApronDairyFarmerPerson` |
 | Farmer | `ApronFarmerPerson` |
 | Fish Store | `ApronFishStorePerson` |
+| Situations | `ApronSituationThinkingTrain`, `ApronSituationDeliveryHomeEntrance`, `ApronSituationPickupFront`, `ApronSituationPickupSide` |
 
 Most of dynamic illustrations are of people doing cooking-related works (face + neck + body). You can use built-in classes, like `ApronMalePerson`. Or you can also "compose" the people yourself by using classes like `ApronMaleFace`, `ApronMaleNeck`, `ApronMaleBody`, etc.
 
