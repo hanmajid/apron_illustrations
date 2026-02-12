@@ -44,6 +44,7 @@ ApronFemalePerson(
   // neckColorMapper: _customColorMapper, // Optional
   // faceColorMapper: _customColorMapper, // Optional
   // bodyColorMapper: _customColorMapper, // Optional
+  // Also optional: Specify one of width / height (cannot used both at the same time)
 )
 ```
 

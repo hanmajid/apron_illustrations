@@ -16,6 +16,9 @@ import 'package:apron_illustrations/src/src.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+const double _designWidth = 121.63;
+const double _designHeight = 129.0;
+
 class ApronFemalePerson extends StatelessWidget {
   final ApronFemaleFaceType faceType;
   final ApronFemaleFaceExpression faceExpression;
@@ -25,6 +28,12 @@ class ApronFemalePerson extends StatelessWidget {
   final ColorMapper? faceColorMapper;
   final ColorMapper? bodyColorMapper;
 
+  /// Default width: 121.63
+  final double? width;
+
+  /// Default height: 129.0
+  final double? height;
+
   const ApronFemalePerson({
     required this.faceType,
     required this.faceExpression,
@@ -33,50 +42,72 @@ class ApronFemalePerson extends StatelessWidget {
     this.neckColorMapper,
     this.faceColorMapper,
     this.bodyColorMapper,
+    this.width,
+    this.height,
     super.key,
-  });
+  }) : assert(
+          (width == null && height == null) ||
+              (width != null && height == null) ||
+              (width == null && height != null),
+          'width & height cannot be used simultaneously',
+        );
+
+  bool get _useHeight => height != null;
 
   @override
   Widget build(BuildContext context) {
-    // TODO Customize width and/or height.
     return SizedBox(
-      height: 129.0,
-      width: 121.63,
+      height: _scaleSize(_designHeight),
+      width: _scaleSize(_designWidth),
       child: Stack(
         children: [
           Positioned(
-            left: 54.55,
-            top: 54.18,
+            left: _scaleSize(54.55),
+            top: _scaleSize(54.18),
             child: ApronFemaleNeck(
-              height: 9.21,
-              width: 12.16,
+              height: _scaleSize(9.21),
+              width: _scaleSize(12.16),
               colorMapper: neckColorMapper,
             ),
           ),
           Positioned(
-            left: 23.59,
+            left: _scaleSize(23.59),
             top: 0,
             child: ApronFemaleFace(
               type: faceType,
               expression: faceExpression,
-              height: 66.34,
-              width: 73.71,
+              height: _scaleSize(66.34),
+              width: _scaleSize(73.71),
               colorMapper: faceColorMapper,
             ),
           ),
           Positioned(
-            left: -0.37,
-            top: 10.69,
+            left: _scaleSize(-0.37),
+            top: _scaleSize(10.69),
             child: ApronFemaleBody(
               type: bodyType,
               pose: bodyPose,
-              height: 117.94,
-              width: 121.63,
+              height: _scaleSize(117.94),
+              width: _scaleSize(121.63),
               colorMapper: bodyColorMapper,
             ),
           ),
         ],
       ),
     );
+  }
+
+  double _scaleSize(double size) {
+    if (_useHeight) {
+      if (height == _designHeight) {
+        return size;
+      }
+      return size * (height! / _designHeight);
+    } else {
+      if (width == null || width == _designWidth) {
+        return size;
+      }
+      return size * (width! / _designWidth);
+    }
   }
 }

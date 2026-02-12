@@ -23,6 +23,22 @@ class MainApp extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 16.0),
+                ApronSituationThinkingTrain(
+                  // width: 130.56,
+                ),
+                ApronSituationThinkingTrain(
+                  // width: 130.56,
+                  child: ApronStaticIllustration(
+                    data: ApronStaticIllustrationData.foodHamburgersteak,
+                  ),
+                ),
+                ApronSituationThinkingTrain(
+                  width: 300,
+                  child: ApronStaticIllustration(
+                    data: ApronStaticIllustrationData.foodHamburgersteak,
+                  ),
+                ),
+                const SizedBox(height: 16.0),
                 Row(
                   spacing: 10.0,
                   children: [
