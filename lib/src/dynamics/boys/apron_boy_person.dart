@@ -16,35 +16,52 @@ import 'package:apron_illustrations/src/src.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+const double _designWidth = 100.0;
+const double _designHeight = 110.0;
+
 class ApronBoyPerson extends StatelessWidget {
   final ApronBoyFaceExpression faceExpression;
   final ApronBoyBodyPose bodyPose;
   final ColorMapper? faceColorMapper;
   final ColorMapper? bodyColorMapper;
 
+  /// Default width: 100.0
+  final double? width;
+
+  /// Default height: 110.0
+  final double? height;
+
   const ApronBoyPerson({
     required this.faceExpression,
     required this.bodyPose,
     this.faceColorMapper,
     this.bodyColorMapper,
+    this.width,
+    this.height,
     super.key,
-  });
+  }) : assert(
+          (width == null && height == null) ||
+              (width != null && height == null) ||
+              (width == null && height != null),
+          'width & height cannot be used simultaneously',
+        );
+
+  bool get _useHeight => height != null;
 
   @override
   Widget build(BuildContext context) {
-    // TODO Customize width and/or height.
     return SizedBox(
-      height: 110.0,
-      width: 100.0,
+      height: _scaleSize(_designHeight),
+      width: _scaleSize(_designWidth),
       child: Stack(
         children: [
           Positioned(
-            left: 16.0,
-            top: 6.5,
+            left: _scaleSize(16.0),
+            top: _scaleSize(6.5),
             child: ApronBoyFace(
               expression: faceExpression,
-              height: 62.0,
-              width: 68.0,
+              height: _scaleSize(62.0),
+              width: _scaleSize(68.0),
               colorMapper: faceColorMapper,
             ),
           ),
@@ -53,13 +70,27 @@ class ApronBoyPerson extends StatelessWidget {
             top: 0.0,
             child: ApronBoyBody(
               pose: bodyPose,
-              height: 110.0,
-              width: 100.0,
+              height: _scaleSize(110.0),
+              width: _scaleSize(100.0),
               colorMapper: bodyColorMapper,
             ),
           ),
         ],
       ),
     );
+  }
+
+  double _scaleSize(double size) {
+    if (_useHeight) {
+      if (height == _designHeight) {
+        return size;
+      }
+      return size * (height! / _designHeight);
+    } else {
+      if (width == null || width == _designWidth) {
+        return size;
+      }
+      return size * (width! / _designWidth);
+    }
   }
 }

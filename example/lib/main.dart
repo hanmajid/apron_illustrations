@@ -23,6 +23,27 @@ class MainApp extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 16.0),
+                ApronMalePerson(
+                  faceType: ApronMaleFaceType.a,
+                  faceExpression: ApronMaleFaceExpression.default_,
+                  bodyType: ApronMaleBodyType.green,
+                  bodyPose: ApronMaleBodyPose.cutting,
+                ),
+                ApronMalePerson(
+                  faceType: ApronMaleFaceType.a,
+                  faceExpression: ApronMaleFaceExpression.default_,
+                  bodyType: ApronMaleBodyType.green,
+                  bodyPose: ApronMaleBodyPose.cutting,
+                  width: 200,
+                ),
+                ApronMalePerson(
+                  faceType: ApronMaleFaceType.a,
+                  faceExpression: ApronMaleFaceExpression.default_,
+                  bodyType: ApronMaleBodyType.green,
+                  bodyPose: ApronMaleBodyPose.cutting,
+                  height: 500,
+                ),
+                const SizedBox(height: 16.0),
                 Row(
                   spacing: 10.0,
                   children: [
