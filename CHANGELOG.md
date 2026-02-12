@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Make dynamic illustrations' dimension customizable.
 
+### Fixed
+- Fix `ApronSituationThinkingTrain` <image /> tag problem.
+
 ## [0.1.0] - 09-02-2026
 ### Added
 - First release 🎉

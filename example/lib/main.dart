@@ -23,25 +23,20 @@ class MainApp extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 16.0),
-                ApronMalePerson(
-                  faceType: ApronMaleFaceType.a,
-                  faceExpression: ApronMaleFaceExpression.default_,
-                  bodyType: ApronMaleBodyType.green,
-                  bodyPose: ApronMaleBodyPose.cutting,
+                ApronSituationThinkingTrain(
+                  // width: 130.56,
                 ),
-                ApronMalePerson(
-                  faceType: ApronMaleFaceType.a,
-                  faceExpression: ApronMaleFaceExpression.default_,
-                  bodyType: ApronMaleBodyType.green,
-                  bodyPose: ApronMaleBodyPose.cutting,
-                  width: 200,
+                ApronSituationThinkingTrain(
+                  // width: 130.56,
+                  child: ApronStaticIllustration(
+                    data: ApronStaticIllustrationData.foodHamburgersteak,
+                  ),
                 ),
-                ApronMalePerson(
-                  faceType: ApronMaleFaceType.a,
-                  faceExpression: ApronMaleFaceExpression.default_,
-                  bodyType: ApronMaleBodyType.green,
-                  bodyPose: ApronMaleBodyPose.cutting,
-                  height: 500,
+                ApronSituationThinkingTrain(
+                  width: 300,
+                  child: ApronStaticIllustration(
+                    data: ApronStaticIllustrationData.foodHamburgersteak,
+                  ),
                 ),
                 const SizedBox(height: 16.0),
                 Row(
